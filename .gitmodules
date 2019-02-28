@@ -1,0 +1,3 @@
+[submodule "pfb-channelizer"]
+	path = pfb-channelizer
+	url = https://github.com/dean-shaff/pfb-channelizer
