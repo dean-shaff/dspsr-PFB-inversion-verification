@@ -1,12 +1,13 @@
 # compare_dump_files.py
 import argparse
 import os
+import typing
 
 import numpy as np
 import scipy.signal
 import matplotlib.pyplot as plt
+from pfb.formats import DADAFile
 
-from pfb_channelizer import PFBChannelizer
 
 op_lookup = {
     "xcorr": lambda a, b: scipy.signal.fftconvolve(
@@ -17,41 +18,34 @@ op_lookup = {
 }
 
 
-def plot_dump_files(*file_paths,
-                    no_header=False,
-                    complex=False,
-                    n_samples=1.0,
-                    op_str="xcorr"):
+def compare_dump_files(*file_paths: typing.Tuple[str],
+                       n_samples: float = 1.0,
+                       op_str: str = "sub"):
     if op_str not in op_lookup:
         raise KeyError(f"Can't find {op} in op_lookup")
     op = op_lookup[op_str]
     comp_dat = []
     dat_sizes = np.zeros(len(file_paths))
-    header_offset = PFBChannelizer.header_size
-    if no_header:
-        header_offset = 0
-    for i, fname in enumerate(file_paths):
-        with open(fname, "rb") as input_file:
-            buffer = input_file.read()
-            # header = np.frombuffer(
-            #     buffer, dtype='c', count=PFBChannelizer.header_size)
-            dt = PFBChannelizer.input_dtype
-            dt = np.dtype(dt).newbyteorder('=')
-            data = np.frombuffer(
-                buffer, dtype=dt,
-                offset=header_offset)
-            if complex:
-                data = data.reshape((-1, 2))
-                data = data[:, 0] + 1j*data[:, 1]
-                data = np.abs(data)
-                # data = data.reshape((2, -1))
-                # data = data[0, :] + 1j*data[1, :]
-            # data = data[:int(len(data)*n_samples)]
+    dada_files = [DADAFile(f) for f in file_paths]
+    for i in range(len(dada_files)):
+        dada_files[i].load_data()
+        dat_sizes[i] = dada_files[i].ndat
 
-        dat_sizes[i] = data.shape[0]
-        comp_dat.append(data)
+    for key in ["NCHAN", "NPOL", "NDIM"]:
+        if len(set([d[key] for d in dada_files])) > 1:
+            raise RuntimeError(
+                ("Need to make sure number of channels and "
+                 "polarizations is the same in order to compare dada files"))
     min_size = int(np.amin(dat_sizes) * n_samples)
-    comp_dat = [dat[:min_size] for dat in comp_dat]
+    comp_dat = [d.data[:min_size, :, :].flatten() for d in dada_files]
+    iscomplex = all([np.iscomplexobj(arr) for arr in comp_dat])
+    if iscomplex:
+        for i in range(len(comp_dat)):
+            data = comp_dat[i]
+            comp_dat[i] = np.zeros(2*data.shape[0])
+            comp_dat[i][::2] = data.real
+            comp_dat[i][1::2] = data.imag
+
     subplot_dim = [len(file_paths) for i in range(2)]
     fig_size_mul = [6, 4]
     fig, axes = plt.subplots(
@@ -64,9 +58,6 @@ def plot_dump_files(*file_paths,
 
     if not hasattr(axes, "__iter__"):
         axes.grid(True)
-        # eighth = int(len(comp_dat[0]) / 8)
-        # axes.plot(1.0/(comp_dat[0][:eighth]))
-        # axes.axvline(int(len(comp_dat[0]) / 8), c="green")
         axes.plot(comp_dat[0])
         axes.set_title(os.path.basename(file_paths[0]))
     else:
