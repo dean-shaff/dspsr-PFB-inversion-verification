@@ -10,6 +10,7 @@ scipy = "*"
 numpy = "*"
 matplotlib = "*"
 numba = "*"
+pyqt5 = "*"
 
 [requires]
 python_version = "3.6"

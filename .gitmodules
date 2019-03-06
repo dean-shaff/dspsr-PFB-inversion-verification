@@ -1,3 +1,6 @@
 [submodule "pfb-channelizer"]
 	path = pfb-channelizer
 	url = https://github.com/dean-shaff/pfb-channelizer
+[submodule "comparator"]
+	path = comparator
+	url = git@github.com:dean-shaff/comparator.git
