@@ -1,6 +1,0 @@
-[submodule "comparator"]
-	path = comparator
-	url = git@github.com:dean-shaff/comparator.git
-[submodule "pfb"]
-	path = pfb
-	url = git@github.com:dean-shaff/pfb.git

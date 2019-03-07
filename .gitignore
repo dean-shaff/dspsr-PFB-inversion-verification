@@ -4,3 +4,4 @@
 *.txt
 *.log
 *.ar
+src/__pycache__

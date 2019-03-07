@@ -2,12 +2,14 @@
 # This program attempts to assess the effectiveness of derippling on
 # various filter lengths.
 import os
+import sys
 import logging
 import typing
 
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.signal
+
 from pfb.pfb_channelizer import PFBChannelizer
 from pfb.formats import DADAFile
 from pfb.rational import Rational
@@ -76,14 +78,14 @@ def test_derippling(
             out,
             output_file_name=os.path.basename(out).replace(".dump", ".dr"),
             output_dir="./products",
-            extra_args=f"-IF 1:{fft_size} -x {fft_size} -dr -V"
+            extra_args=f"-IF 1:D -dr -V"
         )
         out = channelizer.output_file_path
         ar, dump_no_dr = run.run_dspsr_with_dump(
             out,
             # output_file_name=out.strip(".dump") + "dr"
             output_dir="./products",
-            extra_args=f"-IF 1:{fft_size} -x {fft_size} -V"
+            extra_args=f"-IF 1:D -V"
         )
 
         dada_files = [DADAFile(f).load_data() for f in [
@@ -97,20 +99,20 @@ def test_derippling(
         dada_files_pol0[1] /= fft_size_norm
 
         # time_res = comp.time(*dada_files_pol0)
-        freq_res = comp.freq.cartesian(*dada_files_pol0)
-        for i, row in enumerate(freq_res["diff"]):
+        freq_res_op, freq_res_prod = comp.freq.polar(*dada_files_pol0)
+        for i, row in enumerate(freq_res_prod["diff"]):
             for j, col in enumerate(row):
                 if col is not None:
-                    print(f"{i}, {j}: {col[0][-1]['mean']}")
+                    print(f"{i}, {j}: {col[-1]['mean']}")
         # comparator.util.corner_plot(time_res)
-        comparator.util.corner_plot(freq_res)
+        comparator.util.corner_plot(freq_res_op)
 
     plt.show()
 
 
 def main():
-    # fft_size = 229376
-    fft_size = 32768
+    fft_size = 229376
+    # fft_size = 32768
     # n_samples = fft_size*2
     n_samples = 2**19
     # os_factor = "8/7"
