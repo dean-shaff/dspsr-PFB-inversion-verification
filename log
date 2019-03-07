@@ -1,0 +1,1005 @@
+using dsp::LoadToFold
+opening data file freq_domain_impulse.dump
+dsp::File::create filename='freq_domain_impulse.dump
+dsp::File::create with 22 registered sub-classes
+dsp::File::create testing Dummy
+dsp::DummyFile::is_valid first line != DUMMY
+dsp::File::create testing DADA
+dsp::File::create DADA::is_valid() returned true
+dsp::Input ctor this=0xe8d8a0
+dsp::File::open filename=freq_domain_impulse.dump
+ASCIIObservation::load required keywords:
+  TELESCOPE
+  SOURCE
+  CALFREQ
+  FREQ
+  BW
+  NPOL
+  NBIT
+  TSAMP
+  UTC_START
+  OBS_OFFSET
+dsp::ASCIIObservation::load ndat=0
+dsp::ASCIIObservation::load UTC_START='2007-05-18-15:55:58'
+dsp::ASCIIObservation::load asctime=Fri May 18 15:55:58 2007
+
+dsp::ASCIIObservation::load start_mjd=54238.7
+DADAFile::open exit
+dsp::File::fstat_file_ndat(): buf=8392704 header_bytes=4096 tailer_bytes=0 total_bytes=8388608
+dsp::File::seek_bytes nbytes=0 header_bytes=4096
+dsp::Input::seek [INTERNAL] resolution=1 resolution_offset=0 load_sample=0
+dsp::Input::set_load_size block_size=0 resolution_offset=0
+dsp::Input::set_load_size load_size=0
+dsp::SingleThread::set_input input=0xe8d8a0
+dsp::Unpacker::create with 27 registered sub-classes
+dsp::Unpacker::create testing FloatUnpacker
+dsp::Transformation[FloatUnpacker]::ctor
+dsp::FloatUnpacker ctor
+dsp::Unpacker::match
+dsp::Unpacker::create return new sub-class
+Creating WeightedTimeSeries instance
+dsp::IOManager::set_output (TimeSeries*) 0xe8f2b0
+dsp::IOManager::set_output call Unpacker::set_output
+dsp::Transformation[FloatUnpacker]::set_output (0xe8f2b0)
+Creating WeightedTimeSeries instance
+dsp::Transformation[InverseFilterbank]::ctor
+dsp::ScalarFilter::ScalarFilter()
+dsp::Transformation[InverseFilterbank]::set_input (0xe8f2b0)
+dsp::Transformation[InverseFilterbank]::set_output (0xe8fe10)
+dsp::Transformation[Convolution]::ctor
+dsp::ScalarFilter::ScalarFilter()
+Creating WeightedTimeSeries instance
+dsp::Transformation[Convolution]::set_input (0xe8fe10)
+dsp::Transformation[Convolution]::set_output (0xe8ad20)
+dsp::Transformation[Detection]::ctor
+dsp::Transformation[Detection]::set_input (0xe8ad20)
+dsp::Transformation[Detection]::set_output (0xe8ad20)
+dsp::Detection::set_output_state to Coherency Products
+dsp::LoadToFold::build_fold
+dsp::LoadToFold::build_fold nfold=1
+dsp::LoadToFold::get_unloader prepare new Archiver
+dsp::LoadToFold::build_fold input ptr=0 unloader ptr=0xe8b610
+dsp::LoadToFold::build_fold prepare Fold
+dsp::Transformation[Fold]::ctor
+dsp::PhaseSeries::init this=0xe8be00
+dsp::Transformation[Fold]::set_output (0xe8be00)
+dsp::LoadToFold::build_fold configuring
+dsp::LoadToFold::build_fold output ptr=0xe8b9f0
+dsp::Fold::set_input (TimeSeries* =0xe8ad20)
+dsp::Transformation[Fold]::set_input (0xe8ad20)
+dsp::Fold::set_input input is a WeightedTimeSeries
+dsp::Fold::prepare
+dsp::Fold::prepare using folding_period=0.00575745
+dsp::Fold::reset
+PhaseSeries::zero
+PhaseSeries::set_hits(0)
+PhaseSeries::zero exit
+LoadToFold::prepare config DM=2.64476
+dsp::Dedispersion::set_dispersion_measure 2.64476
+dsp::IOManager::prepare
+dsp::IOManager::set_output (BitSeries*) 0xe8c300
+dsp::IOManager::set_output call Unpacker::set_input
+dsp::Transformation[FloatUnpacker]::set_input (0xe8c300)
+dsp::Input::set_output (BitSeries* = 0xe8c300)
+dsp::Input::prepare
+dsp::BitSeries::copy_configuration ndat=524288
+dsp::Input::prepare output start_time=54238.7
+dsp::Unpacker::prepare
+dsp::TimeSeries::set_nbit (32) ignored
+dsp::Unpacker::prepare output start_time=54238.7
+dsp::InverseFilterbank::prepare
+dsp::InverseFilterbank::make_preparations
+dsp::Dedispersion::match before lock
+dsp::Dedispersion::match after lock
+dsp::Dedispersion::prepare input.nchan=1 channels=1
+	 centre frequency=1405 bandwidth=40 dispersion measure=2.64476
+dsp::Dedispersion::set_dispersion_measure 2.64476
+dsp::Dedispersion::smearing_time freq=1385 bw=20
+dsp::Dedispersion::delay_time DM=2.64476 f1=1375 f2=1395
+dsp::Dedispersion::smearing_time in the lower half of the band: 0.165244 ms
+dsp::Dedispersion::smearing_samples = 6609
+dsp::Dedispersion::smearing_samples effective smear time: 0.181775 ms (7271 pts).
+dsp::Dedispersion::prepare 0 unsupported channels
+dsp::Dedispersion::smearing_time freq=1425 bw=20
+dsp::Dedispersion::delay_time DM=2.64476 f1=1415 f2=1435
+dsp::Dedispersion::smearing_time in the upper half of the band: 0.151715 ms
+dsp::Dedispersion::smearing_samples = 6068
+dsp::Dedispersion::smearing_samples effective smear time: 0.1669 ms (6676 pts).
+dsp::Response::get_minimum_ndat impulse_tot=13947 min power of two=16384
+Response::set_optimal_ndat minimum ndat=16384
+optimal_fft_length: minimum FFT:16384 maximum FFT:0
+NFFT 16384  %kept:0.1487 O(FFT):158991.3277 Timescale:65.2406
+NFFT 32768  %kept:0.5744 O(FFT):340695.7022 Timescale:18.1019
+NFFT 65536  %kept:0.7872 O(FFT):726817.4980 Timescale:14.0886
+NFFT 131072  %kept:0.8936 O(FFT):1544487.1833 Timescale:13.1867
+NFFT 262144  %kept:0.9468 O(FFT):3270678.7410 Timescale:13.1778
+NFFT 524288  %kept:0.9734 O(FFT):6904766.2310 Timescale:13.5297
+dsp::Shape::resize  npol=2  nchan=1  ndat=262144  ndim=1
+dsp::Dedispersion::build
+  centre frequency = 1405
+  bandwidth = 40
+  dispersion measure = 2.64476
+  Doppler shift = 1
+  ndat = 262144
+  nchan = 1
+  centred on DC = 0
+  fractional delay compensation = 0
+dsp::Shape::resize  npol=1  nchan=1  ndat=262144  ndim=2
+dsp::Response::match input.nchan=1 channels=1
+dsp::Dedispersion::match exit
+dsp::InverseFilterbank::make_preparations: output_discard_neg(before)=7271 output_discard_pos(before)=6676 output_fft_length(before)=262144
+dsp::InverseFilterbank::optimize_discard_region
+dsp::InverseFilterbank::optimize_fft_length
+dsp::InverseFilterbank::make_preparations: input_discard_neg(after)=7271 input_discard_pos(after)=6676 input_fft_length(after)=262144 output_discard_neg(after)=7271 output_discard_pos(after)=6676 output_fft_length(after)=262144
+dsp::InverseFilterbank::make_preparations: done optimizing fft lengths and discard regions
+dsp::InverseFilterbank::make_preparations: input_fft_length=262144 output_fft_length=262144 input_discard_neg/pos=7271/6676 output_discard_neg/pos=7271/6676
+dsp::Dedispersion::set_frequency_resolution (262144)
+dsp::Shape::resize  npol=1  nchan=1  ndat=262144  ndim=2
+dsp::InverseFilterbank::make_preparations: reserve=262144
+dsp::Reserve::reserve increasing reserve to 262144
+dsp::TimeSeries::change_reserve (262144)
+dsp::InverseFilterbankEngineCPU::setup_fft_plans: setting response
+dsp::InverseFilterbankEngineCPU::setup_fft_plans: done setting up FFT plans
+dsp::InverseFilterbankEngineCPU::setup_fft_plans: scalefac=6.87195e+10
+dsp::InverseFilterbank::prepare_output
+dsp::TimeSeries::set_nbit (32) ignored
+dsp::TimeSeries::copy_configuration ndat=0
+dsp::WeightedTimeSeries::copy_weights resize weights (ndat=0)
+dsp::WeightedTimeSeries::resize_weights nsamples=0
+dsp::WeightedTimeSeries::resize_weights reserve=0
+dsp::WeightedTimeSeries::resize_weights nweights=0 require=0 have=0
+dsp::InverseFilterbank::prepare_output output ndim=2 output npol=2 output nchan=1 output ndat=0
+dsp::WeightedTimeSeries::convolve_weights ndat=0 + nkeep=248197 is less than nfft=262144
+dsp::WeightedTimeSeries::get_nweights weight_idat=0 nweights=0
+dsp::WeightedTimeSeries::scrunch_weights nscrunch=1 ndat_per_weight=0 nweights=0 weight_idat=0
+dsp::InverseFilterbank::prepare_output scrunch ndat=0
+dsp::WeightedTimeSeries::resize (0)
+dsp::TimeSeries::resize (0) data=0 buffer=0 ndat=0
+dsp::TimeSeries::resize reserve_ndat=0 fake_ndat=0
+dsp::WeightedTimeSeries::resize_weights nsamples=0
+dsp::WeightedTimeSeries::resize_weights reserve=0
+dsp::WeightedTimeSeries::resize_weights nweights=0 require=0 have=0
+dsp::InverseFilterbank::prepare_output output ndat=0
+dsp::InverseFilterbank::prepare_output scale=6.87195e+10
+dsp::InverseFilterbank::prepare_output ratechange=1 input_nchan=1 output_nchan=1
+dsp::InverseFilterbank::prepare_output ratechange=1 input rate=4e+07 output rate=4e+07
+dsp::InverseFilterbank::prepare_output start time += 6676 samps -> 54238.7
+dsp::Dedispersion::mark no longer changing DM
+dsp::InverseFilterbank::make_preparations: calling engine setup
+dsp::InverseFilterbankEngineCPU::setup input_fft_points=524288 output_fft_points=524288 response_stitch_points=524288 fft_shift_points=524288 stitch_points=524288
+dsp::InverseFilterbank::make_preparations: scalefac=6.87195e+10
+dsp::Dedispersion::match before lock
+dsp::Dedispersion::match after lock
+dsp::Dedispersion::prepare input.nchan=1 channels=0
+	 centre frequency=1405 bandwidth=40 dispersion measure=2.64476
+dsp::Dedispersion::set_dispersion_measure 2.64476
+dsp::Response::match input.nchan=1 channels=0
+dsp::Dedispersion::match exit
+dsp::ScalarFilter::match channels=0
+dsp::ScalarFilter::match set_nchan(1)
+dsp::ScalarFilter::resize(1,1,1,2)
+dsp::Shape::resize  npol=1  nchan=1  ndat=1  ndim=2
+dsp::ScalarFilter::build scale_factor=1
+dsp::Response::match Response
+dsp::Shape::resize  npol=2  nchan=1  ndat=262144  ndim=1
+Convolution::prepare filt=262144 smear=13947
+dsp::ScalarFilter::set_scale_factor factor=3.8147e-06
+dsp::ResponseProduct::match (const Observation*)
+dsp::Dedispersion::match before lock
+dsp::Dedispersion::match after lock
+dsp::Dedispersion::prepare input.nchan=1 channels=0
+	 centre frequency=1405 bandwidth=40 dispersion measure=2.64476
+dsp::Dedispersion::set_dispersion_measure 2.64476
+dsp::Response::match input.nchan=1 channels=0
+dsp::Dedispersion::match exit
+dsp::ScalarFilter::match channels=0
+dsp::ScalarFilter::match set_nchan(1)
+dsp::ScalarFilter::resize(1,1,1,2)
+dsp::Shape::resize  npol=1  nchan=1  ndat=1  ndim=2
+dsp::ScalarFilter::build scale_factor=3.8147e-06
+dsp::ResponseProduct::build
+dsp::ResponseProduct::build match_index=0
+dsp::ScalarFilter::match Response nchan=1 ndat=262144
+dsp::ScalarFilter::resize(1,1,262144,2)
+dsp::Shape::resize  npol=1  nchan=1  ndat=262144  ndim=2
+dsp::ScalarFilter::resize(1,1,262144,2)
+dsp::Shape::resize  npol=1  nchan=1  ndat=262144  ndim=2
+dsp::ScalarFilter::build scale_factor=3.8147e-06
+dsp::ResponseProduct::build copy_index=0
+dsp::Shape::resize  npol=1  nchan=1  ndat=262144  ndim=2
+dsp::ResponseProduct::build ndat=262144 nchan=1
+dsp::ResponseProduct::build DONE!
+dsp::Convolution::prepare reserve=262144
+dsp::Reserve::reserve increasing reserve to 262144
+dsp::TimeSeries::change_reserve (262144)
+dsp::Convolution::prepare_output nsamp fft=262144 overlap=13947 step=248197
+dsp::TimeSeries::set_nbit (32) ignored
+dsp::TimeSeries::copy_configuration ndat=0
+dsp::WeightedTimeSeries::copy_weights resize weights (ndat=0)
+dsp::WeightedTimeSeries::resize_weights nsamples=0
+dsp::WeightedTimeSeries::resize_weights reserve=0
+dsp::WeightedTimeSeries::resize_weights nweights=0 require=0 have=0
+dsp::Detection::resize_output
+dsp::Detection::resize_output inplace=1
+dsp::Detection::resize_output state: Coherency Products ndim=4
+dsp::Detection::resize_output reshape FROM npol=2 ndim=2 TO npol=1 ndim=4
+dsp::Fold::prepare
+dsp::Fold::prepare using folding_period=0.00575745
+dsp::Fold::reset
+PhaseSeries::zero
+PhaseSeries::set_hits(0)
+PhaseSeries::zero exit
+dsp::Response::get_minimum_ndat impulse_tot=13947 min power of two=16384
+dspsr: dedispersion filter length=262144 (minimum=16384) complex samples
+dspsr: convolution requires at least 262144 samples
+block_size=262144
+dsp::IOManager::set_overlap request overlap=0
+dsp::IOManager::set_overlap input resolution=1
+dsp::IOManager::set_overlap require overlap=0
+dsp::IOManager::set_block_size minimum_samples=262144
+dsp::IOManager::set_block_size input resolution=1
+dsp::IOManager::set_block_size copies=3 nbit=32 nbyte=16
+dsp::IOManager::set_block_size required block_size=262144
+dsp::IOManager::set_block_size minimum_RAM=0 nbyte_dat=64
+dsp::IOManager::set_block_size maximum block_size=4194304
+dsp::Input::set_load_size block_size=4194304 resolution_offset=0
+dsp::Input::set_load_size near end of data
+dsp::Input::set_load_size load_size=524288
+dspsr: blocksize=4194304 samples or 256 MB
+dsp::SingleThread::run this=0xe8d5b0 nops=5
+dsp::SingleThread::run operation (0): IOManager:DADA
+dsp::SingleThread::run operation (1): InverseFilterbank
+dsp::SingleThread::run operation (2): Convolution
+dsp::SingleThread::run operation (3): Detection
+dsp::SingleThread::run operation (4): Fold
+dsp::IOManager::set_scratch
+dsp::IOManager::reserve
+dsp::Input::reserve block_size=4194304 maximum_load_size=4194304
+dsp::BitSeries::resize current size = 0 bytes -- required size = 67108864 bytes
+dsp::BitSeries::resize() setting request_ndat to 4194304
+dsp::BitSeries::resize this=0xe8c300 size=67108864
+dsp::BitSeries::resize() setting request_ndat to 4194304
+dsp::Unpacker::reserve input ndat=4194304
+dsp::WeightedTimeSeries::resize (4194304)
+dsp::TimeSeries::resize (4194304) data=0 buffer=0 ndat=0
+dsp::TimeSeries::resize reserve_ndat=262144 fake_ndat=262144
+dsp::DataSeries::resize nsamp=4456448 nbit=32 ndim=2 (current ndat=0)
+dsp::DataSeries::resize nbits=nsamp*nbit*ndim=285212672
+dsp::DataSeries::resize npol=2 nchan=1
+dsp::DataSeries::resize nbytes=nbits/8*npol*nchan=71303168 (current size=0)
+dsp::DataSeries::resize Memory::allocate (71303168)
+dsp::DataSeries::resize buffer=0x7f9e06280010
+dsp::DataSeries::resize memory_used=71303168
+dsp::DataSeries::reshape size=71303168 bytes (subsize=35651584 bytes)
+dsp::WeightedTimeSeries::resize_weights nsamples=4194304
+dsp::WeightedTimeSeries::resize_weights reserve=262144
+dsp::WeightedTimeSeries::resize_weights nweights=0 require=0 have=0
+dsp::InverseFilterbank::reserve
+dsp::InverseFilterbank::resize_output reserve_extra=1
+dsp::InverseFilterbank::reserve input ndat=4194304 overlap=13947 step=248197 reserve=1 output_sample_step=248197 npart=18 output ndat=4467546
+dsp::InverseFilterbank::prepare_output
+dsp::InverseFilterbank::prepare_output set ndat=4467546
+dsp::WeightedTimeSeries::resize (4467546)
+dsp::TimeSeries::resize (4467546) data=0 buffer=0 ndat=0
+dsp::TimeSeries::resize reserve_ndat=262144 fake_ndat=262144
+dsp::DataSeries::resize nsamp=4729690 nbit=32 ndim=2 (current ndat=0)
+dsp::DataSeries::resize nbits=nsamp*nbit*ndim=302700160
+dsp::DataSeries::resize npol=2 nchan=1
+dsp::DataSeries::resize nbytes=nbits/8*npol*nchan=75675040 (current size=0)
+dsp::DataSeries::resize Memory::allocate (75675040)
+dsp::DataSeries::resize buffer=0x7f9e01a54010
+dsp::DataSeries::resize memory_used=146978208
+dsp::DataSeries::reshape size=75675040 bytes (subsize=37837520 bytes)
+dsp::WeightedTimeSeries::resize_weights nsamples=4467546
+dsp::WeightedTimeSeries::resize_weights reserve=262144
+dsp::WeightedTimeSeries::resize_weights nweights=0 require=0 have=0
+dsp::TimeSeries::set_nbit (32) ignored
+dsp::TimeSeries::copy_configuration ndat=4194304
+dsp::WeightedTimeSeries::copy_weights resize weights (ndat=4194304)
+dsp::WeightedTimeSeries::resize_weights nsamples=4194304
+dsp::WeightedTimeSeries::resize_weights reserve=262144
+dsp::WeightedTimeSeries::resize_weights nweights=0 require=0 have=0
+dsp::InverseFilterbank::prepare_output output ndim=2 output npol=2 output nchan=1 output ndat=4194304
+dsp::WeightedTimeSeries::get_nweights weight_idat=0 nweights=0
+dsp::WeightedTimeSeries::get_nweights weight_idat=0 nweights=0
+dsp::WeightedTimeSeries::convolve_weights nfft=262144 nkeep=248197
+  ndat_per_weight=0 nweights=0 weight_idat=0 bad=0
+dsp::WeightedTimeSeries::get_nweights weight_idat=0 nweights=0
+dsp::WeightedTimeSeries::scrunch_weights nscrunch=1 ndat_per_weight=0 nweights=0 weight_idat=0
+dsp::InverseFilterbank::prepare_output reset ndat=4467546
+dsp::WeightedTimeSeries::resize (4467546)
+dsp::TimeSeries::resize (4467546) data=0x7f9e01c54010 buffer=0x7f9e01a54010 ndat=4194304
+dsp::TimeSeries::resize (4467546) offset=524288
+dsp::TimeSeries::resize reserve_ndat=262144 fake_ndat=262144
+dsp::DataSeries::resize nsamp=4729690 nbit=32 ndim=2 (current ndat=4194304)
+dsp::DataSeries::resize nbits=nsamp*nbit*ndim=302700160
+dsp::DataSeries::resize npol=2 nchan=1
+dsp::DataSeries::resize nbytes=nbits/8*npol*nchan=75675040 (current size=75675040)
+dsp::DataSeries::reshape size=75675040 bytes (subsize=37837520 bytes)
+dsp::WeightedTimeSeries::resize_weights nsamples=4467546
+dsp::WeightedTimeSeries::resize_weights reserve=262144
+dsp::WeightedTimeSeries::resize_weights nweights=0 require=0 have=0
+dsp::InverseFilterbank::prepare_output output ndat=4467546
+dsp::InverseFilterbank::prepare_output scale=6.87195e+10
+dsp::InverseFilterbank::prepare_output ratechange=1 input_nchan=1 output_nchan=1
+dsp::InverseFilterbank::prepare_output ratechange=1 input rate=4e+07 output rate=4e+07
+dsp::InverseFilterbank::prepare_output start time += 6676 samps -> 54238.7
+dsp::Dedispersion::mark no longer changing DM
+dsp::Convolution::prepare_output nsamp fft=262144 overlap=13947 step=248197
+dsp::TimeSeries::set_nbit (32) ignored
+dsp::TimeSeries::copy_configuration ndat=4467546
+dsp::WeightedTimeSeries::copy_weights resize weights (ndat=4467546)
+dsp::WeightedTimeSeries::resize_weights nsamples=4467546
+dsp::WeightedTimeSeries::resize_weights reserve=0
+dsp::WeightedTimeSeries::resize_weights nweights=0 require=0 have=0
+Convolution::reserve ndat=4467546 nfft=262144 npart=17
+dsp::WeightedTimeSeries::resize (4219349)
+dsp::TimeSeries::resize (4219349) data=0 buffer=0 ndat=4467546
+dsp::TimeSeries::resize reserve_ndat=0 fake_ndat=0
+dsp::DataSeries::resize nsamp=4219349 nbit=32 ndim=2 (current ndat=4467546)
+dsp::DataSeries::resize nbits=nsamp*nbit*ndim=270038336
+dsp::DataSeries::resize npol=2 nchan=1
+dsp::DataSeries::resize nbytes=nbits/8*npol*nchan=67509584 (current size=0)
+dsp::DataSeries::resize Memory::allocate (67509584)
+dsp::DataSeries::resize buffer=0x7f9dfd9f2010
+dsp::DataSeries::resize memory_used=214487792
+dsp::DataSeries::reshape size=67509584 bytes (subsize=33754792 bytes)
+dsp::WeightedTimeSeries::resize_weights nsamples=4219349
+dsp::WeightedTimeSeries::resize_weights reserve=0
+dsp::WeightedTimeSeries::resize_weights nweights=0 require=0 have=0
+Convolution::reserve scale=6.87195e+10
+dsp::WeightedTimeSeries::get_nweights weight_idat=0 nweights=0
+dsp::WeightedTimeSeries::get_nweights weight_idat=0 nweights=0
+dsp::WeightedTimeSeries::convolve_weights nfft=262144 nkeep=248197
+  ndat_per_weight=0 nweights=0 weight_idat=0 bad=0
+Convolution::reserve done
+dsp::Transformation[Detection]::reserve
+reserve_trait resize ndat=4219349
+dsp::WeightedTimeSeries::resize (4219349)
+dsp::TimeSeries::resize (4219349) data=0x7f9dfd9f2010 buffer=0x7f9dfd9f2010 ndat=4219349
+dsp::TimeSeries::resize (4219349) offset=0
+dsp::TimeSeries::resize reserve_ndat=0 fake_ndat=0
+dsp::DataSeries::resize nsamp=4219349 nbit=32 ndim=2 (current ndat=4219349)
+dsp::DataSeries::resize nbits=nsamp*nbit*ndim=270038336
+dsp::DataSeries::resize npol=2 nchan=1
+dsp::DataSeries::resize nbytes=nbits/8*npol*nchan=67509584 (current size=67509584)
+dsp::DataSeries::reshape size=67509584 bytes (subsize=33754792 bytes)
+dsp::WeightedTimeSeries::resize_weights nsamples=4219349
+dsp::WeightedTimeSeries::resize_weights reserve=0
+dsp::WeightedTimeSeries::resize_weights nweights=0 require=0 have=0
+dsp::Transformation[Fold]::reserve
+dsp::SingleThread::run calling IOManager:DADA
+dsp::Operation[IOManager:DADA]::operate
+dsp::Input::load before lock
+dsp::Input::load after lock
+dsp::Input::set_output (BitSeries* = 0xe8c300)
+dsp::Operation[DADA]::operate
+dsp::Input::operation [EXTERNAL] block_size=4194304 next_sample=0
+dsp::BitSeries::copy_configuration ndat=524288
+dsp::Input::operation [INTERNAL] load_size=524288 load_sample=0
+dsp::Input::operation call load_data Bit_Stream::ndat=524288
+dsp::Input::reserve block_size=4194304 maximum_load_size=4194304
+dsp::BitSeries::resize() setting request_ndat to 4194304
+dsp::BitSeries::resize() setting request_ndat to 4194304
+dsp::Seekable::load_data
+   load_size=524288
+   load_sample=0
+   current_sample=0
+dsp::Seekable::recycle_data no input_sample
+dsp::Seekable::load_data
+   recycled=0
+   read_size=524288
+   read_sample=0
+dsp::Seekable::load_data total ndat=524288 read_sample=0
+dsp::Seekable::load_data 524288 samples remaining
+dsp::Seekable::load_data end of data read_size=524288
+dsp::Seekable::load_data call load_bytes(8388608)
+dsp::File::load_bytes nbytes=8388608
+dsp::File::load_bytes bytes_read=8388608 old_pos=4096 new_pos=8392704 end_pos=8392704
+dsp::Input::operation load_data done load_sample=0 name='DADA'
+dsp::Input::operation total_ndat=524288 available=524288 < block_size=4194304
+dsp::Input::operation useful ndat=524288
+dsp::BitSeries::resize() setting request_ndat to 524288
+dsp::Input::operation eod request_ndat=524288
+dsp::Input::operation calling seek(524288)
+dsp::Input::seek [INTERNAL] resolution=1 resolution_offset=0 load_sample=524288
+dsp::Input::set_load_size block_size=4194304 resolution_offset=0
+dsp::Input::set_load_size near end of data
+dsp::Input::set_load_size load_size=0
+dsp::Input::operation exit with load_sample=524288
+dsp::Input::load exit
+dsp::Operation[FloatUnpacker]::operate
+dsp::Transformation[FloatUnpacker]::operation call vchecks
+dsp::Transformation[FloatUnpacker]::vchecks input checks
+dsp::Transformation[FloatUnpacker]::vchecks done
+dsp::Transformation[FloatUnpacker]::operation transformation
+dsp::Unpacker::transformation
+dsp::Unpacker::prepare
+dsp::TimeSeries::set_nbit (32) ignored
+dsp::Unpacker::prepare output start_time=54238.7
+dsp::Unpacker::reserve input ndat=524288
+dsp::WeightedTimeSeries::resize (524288)
+dsp::TimeSeries::resize (524288) data=0x7f9e06480010 buffer=0x7f9e06280010 ndat=524288
+dsp::TimeSeries::resize (524288) offset=524288
+dsp::TimeSeries::resize reserve_ndat=262144 fake_ndat=262144
+dsp::DataSeries::resize nsamp=786432 nbit=32 ndim=2 (current ndat=524288)
+dsp::DataSeries::resize nbits=nsamp*nbit*ndim=50331648
+dsp::DataSeries::resize npol=2 nchan=1
+dsp::DataSeries::resize nbytes=nbits/8*npol*nchan=12582912 (current size=71303168)
+dsp::DataSeries::reshape size=71303168 bytes (subsize=6291456 bytes)
+dsp::WeightedTimeSeries::resize_weights nsamples=524288
+dsp::WeightedTimeSeries::resize_weights reserve=262144
+dsp::WeightedTimeSeries::resize_weights nweights=0 require=0 have=0
+dsp::Unpacker::tranformation TimeSeries book-keeping
+  input_sample=0  seek=0  ndat=524288
+dsp::WeightedTimeSeries::seek (0) base=0 weights=0 diff=0
+dsp::TimeSeries::decrease_ndat from 524288 to 524288
+dsp::Unpacker::transformation exit
+dsp::Transformation[FloatUnpacker]::operation check output
+dsp::SingleThread::run IOManager:DADA done
+dsp::SingleThread::run calling InverseFilterbank
+dsp::Operation[InverseFilterbank]::operate
+dsp::Transformation[InverseFilterbank]::operation call vchecks
+dsp::Transformation[InverseFilterbank]::vchecks input checks
+dsp::Transformation[InverseFilterbank]::vchecks done
+dsp::Transformation[InverseFilterbank]::operation
+  calling InputBuffering::pre_transformation input sample=0
+dsp::Transformation[InverseFilterbank]::operation transformation
+dsp::InverseFilterbank::transformation input ndat=524288 nchan=1
+dsp::InverseFilterbank::resize_output reserve_extra=0
+dsp::InverseFilterbank::reserve input ndat=524288 overlap=13947 step=248197 reserve=0 output_sample_step=248197 npart=2 output ndat=496394
+dsp::InverseFilterbank::prepare_output
+dsp::InverseFilterbank::prepare_output set ndat=496394
+dsp::WeightedTimeSeries::resize (496394)
+dsp::TimeSeries::resize (496394) data=0x7f9e01c54010 buffer=0x7f9e01a54010 ndat=4467546
+dsp::TimeSeries::resize (496394) offset=524288
+dsp::TimeSeries::resize reserve_ndat=262144 fake_ndat=262144
+dsp::DataSeries::resize nsamp=758538 nbit=32 ndim=2 (current ndat=4467546)
+dsp::DataSeries::resize nbits=nsamp*nbit*ndim=48546432
+dsp::DataSeries::resize npol=2 nchan=1
+dsp::DataSeries::resize nbytes=nbits/8*npol*nchan=12136608 (current size=75675040)
+dsp::DataSeries::reshape size=75675040 bytes (subsize=6068304 bytes)
+dsp::WeightedTimeSeries::resize_weights nsamples=496394
+dsp::WeightedTimeSeries::resize_weights reserve=262144
+dsp::WeightedTimeSeries::resize_weights nweights=0 require=0 have=0
+dsp::TimeSeries::set_nbit (32) ignored
+dsp::TimeSeries::copy_configuration ndat=524288
+dsp::WeightedTimeSeries::copy_weights resize weights (ndat=524288)
+dsp::WeightedTimeSeries::resize_weights nsamples=524288
+dsp::WeightedTimeSeries::resize_weights reserve=262144
+dsp::WeightedTimeSeries::resize_weights nweights=0 require=0 have=0
+dsp::InverseFilterbank::prepare_output output ndim=2 output npol=2 output nchan=1 output ndat=524288
+dsp::WeightedTimeSeries::get_nweights weight_idat=0 nweights=0
+dsp::WeightedTimeSeries::get_nweights weight_idat=0 nweights=0
+dsp::WeightedTimeSeries::convolve_weights nfft=262144 nkeep=248197
+  ndat_per_weight=0 nweights=0 weight_idat=0 bad=0
+dsp::WeightedTimeSeries::get_nweights weight_idat=0 nweights=0
+dsp::WeightedTimeSeries::scrunch_weights nscrunch=1 ndat_per_weight=0 nweights=0 weight_idat=0
+dsp::InverseFilterbank::prepare_output reset ndat=496394
+dsp::WeightedTimeSeries::resize (496394)
+dsp::TimeSeries::resize (496394) data=0x7f9e01c54010 buffer=0x7f9e01a54010 ndat=524288
+dsp::TimeSeries::resize (496394) offset=524288
+dsp::TimeSeries::resize reserve_ndat=262144 fake_ndat=262144
+dsp::DataSeries::resize nsamp=758538 nbit=32 ndim=2 (current ndat=524288)
+dsp::DataSeries::resize nbits=nsamp*nbit*ndim=48546432
+dsp::DataSeries::resize npol=2 nchan=1
+dsp::DataSeries::resize nbytes=nbits/8*npol*nchan=12136608 (current size=75675040)
+dsp::DataSeries::reshape size=75675040 bytes (subsize=6068304 bytes)
+dsp::WeightedTimeSeries::resize_weights nsamples=496394
+dsp::WeightedTimeSeries::resize_weights reserve=262144
+dsp::WeightedTimeSeries::resize_weights nweights=0 require=0 have=0
+dsp::InverseFilterbank::prepare_output output ndat=496394
+dsp::InverseFilterbank::prepare_output scale=6.87195e+10
+dsp::InverseFilterbank::prepare_output ratechange=1 input_nchan=1 output_nchan=1
+dsp::InverseFilterbank::prepare_output ratechange=1 input rate=4e+07 output rate=4e+07
+dsp::InverseFilterbank::prepare_output start time += 6676 samps -> 54238.7
+dsp::Dedispersion::mark no longer changing DM
+dsp::InputBuffering::set_next_start next=496394 ndat=524288
+dsp::InputBuffering::set_next_start saving 27894 samples
+dsp::InputBuffering::set_next_start null_clone input
+dsp::WeightedTimeSeries::null_clone
+dsp::InputBuffering::set_next_start copying from input sample 496394
+dsp::InputBuffering::set_next_start resize buffer minimum_samples=262144
+dsp::WeightedTimeSeries::resize (262144)
+dsp::TimeSeries::resize (262144) data=0 buffer=0 ndat=0
+dsp::TimeSeries::resize reserve_ndat=0 fake_ndat=0
+dsp::DataSeries::resize nsamp=262144 nbit=32 ndim=2 (current ndat=0)
+dsp::DataSeries::resize nbits=nsamp*nbit*ndim=16777216
+dsp::DataSeries::resize npol=2 nchan=1
+dsp::DataSeries::resize nbytes=nbits/8*npol*nchan=4194304 (current size=0)
+dsp::DataSeries::resize Memory::allocate (4194304)
+dsp::DataSeries::resize buffer=0x7f9e0f27d010
+dsp::DataSeries::resize memory_used=218682096
+dsp::DataSeries::reshape size=4194304 bytes (subsize=2097152 bytes)
+dsp::WeightedTimeSeries::resize_weights nsamples=262144
+dsp::WeightedTimeSeries::resize_weights reserve=0
+dsp::WeightedTimeSeries::resize_weights nweights=0 require=0 have=0
+dsp::WeightedTimeSeries::copy_data TimeSeries::copy_data
+dsp::TimeSeries::copy_data to ndat=262144 from ndat=524288
+  idat_start=496394 copy_ndat=27894
+dsp::WeightedTimeSeries::copy_data call copy_weights
+dsp::InverseFilterbank::transformation npart=2 nkeep=3751711632 output_ndat=496394
+dsp::InverseFilterbank::transformation after prepare output ndat=496394 input_sample=0
+dsp::InverseFilterbank::filterbank
+dsp::InverseFilterbank::filterbank: computing in_step and out_step
+dsp::InverseFilterbankEngineCPU::perform: writing 2 chunks
+dsp::InverseFilterbankEngineCPU::perform: pol=0 loop=1/2 doing inverse FFT
+dsp::InverseFilterbankEngineCPU::perform: backward FFT complete.
+dsp::InverseFilterbankEngineCPU::perform: pol=1 loop=1/2 doing inverse FFT
+dsp::InverseFilterbankEngineCPU::perform: backward FFT complete.
+dsp::InverseFilterbankEngineCPU::perform: pol=0 loop=2/2 doing inverse FFT
+dsp::InverseFilterbankEngineCPU::perform: backward FFT complete.
+dsp::InverseFilterbankEngineCPU::perform: pol=1 loop=2/2 doing inverse FFT
+dsp::InverseFilterbankEngineCPU::perform: backward FFT complete.
+dsp::InverseFilterbankEngineCPU::perform: finish
+dsp::Transformation[InverseFilterbank]::operation post_transformation
+dsp::Transformation[InverseFilterbank]::operation check output
+dsp::SingleThread::run InverseFilterbank done
+dsp::SingleThread::run calling Convolution
+dsp::Operation[Convolution]::operate
+dsp::Transformation[Convolution]::operation call vchecks
+dsp::Transformation[Convolution]::vchecks input checks
+dsp::Transformation[Convolution]::vchecks done
+dsp::Transformation[Convolution]::operation
+  calling InputBuffering::pre_transformation input sample=0
+dsp::Transformation[Convolution]::operation transformation
+dsp::Convolution::prepare_output nsamp fft=262144 overlap=13947 step=248197
+dsp::InputBuffering::set_next_start next=248197 ndat=496394
+dsp::InputBuffering::set_next_start saving 248197 samples
+dsp::InputBuffering::set_next_start null_clone input
+dsp::WeightedTimeSeries::null_clone
+dsp::InputBuffering::set_next_start copying from input sample 248197
+dsp::InputBuffering::set_next_start resize buffer minimum_samples=262144
+dsp::WeightedTimeSeries::resize (262144)
+dsp::TimeSeries::resize (262144) data=0 buffer=0 ndat=0
+dsp::TimeSeries::resize reserve_ndat=0 fake_ndat=0
+dsp::DataSeries::resize nsamp=262144 nbit=32 ndim=2 (current ndat=0)
+dsp::DataSeries::resize nbits=nsamp*nbit*ndim=16777216
+dsp::DataSeries::resize npol=2 nchan=1
+dsp::DataSeries::resize nbytes=nbits/8*npol*nchan=4194304 (current size=0)
+dsp::DataSeries::resize Memory::allocate (4194304)
+dsp::DataSeries::resize buffer=0x7f9dfd5f1010
+dsp::DataSeries::resize memory_used=222876400
+dsp::DataSeries::reshape size=4194304 bytes (subsize=2097152 bytes)
+dsp::WeightedTimeSeries::resize_weights nsamples=262144
+dsp::WeightedTimeSeries::resize_weights reserve=0
+dsp::WeightedTimeSeries::resize_weights nweights=0 require=0 have=0
+dsp::WeightedTimeSeries::copy_data TimeSeries::copy_data
+dsp::TimeSeries::copy_data to ndat=262144 from ndat=496394
+  idat_start=248197 copy_ndat=248197
+dsp::WeightedTimeSeries::copy_data call copy_weights
+dsp::TimeSeries::set_nbit (32) ignored
+dsp::TimeSeries::copy_configuration ndat=496394
+dsp::WeightedTimeSeries::copy_weights resize weights (ndat=496394)
+dsp::WeightedTimeSeries::resize_weights nsamples=496394
+dsp::WeightedTimeSeries::resize_weights reserve=0
+dsp::WeightedTimeSeries::resize_weights nweights=0 require=0 have=0
+Convolution::reserve ndat=496394 nfft=262144 npart=1
+dsp::WeightedTimeSeries::resize (248197)
+dsp::TimeSeries::resize (248197) data=0x7f9dfd9f2010 buffer=0x7f9dfd9f2010 ndat=496394
+dsp::TimeSeries::resize (248197) offset=0
+dsp::TimeSeries::resize reserve_ndat=0 fake_ndat=0
+dsp::DataSeries::resize nsamp=248197 nbit=32 ndim=2 (current ndat=496394)
+dsp::DataSeries::resize nbits=nsamp*nbit*ndim=15884608
+dsp::DataSeries::resize npol=2 nchan=1
+dsp::DataSeries::resize nbytes=nbits/8*npol*nchan=3971152 (current size=67509584)
+dsp::DataSeries::reshape size=67509584 bytes (subsize=1985576 bytes)
+dsp::WeightedTimeSeries::resize_weights nsamples=248197
+dsp::WeightedTimeSeries::resize_weights reserve=0
+dsp::WeightedTimeSeries::resize_weights nweights=0 require=0 have=0
+Convolution::reserve scale=6.87195e+10
+dsp::WeightedTimeSeries::get_nweights weight_idat=0 nweights=0
+dsp::WeightedTimeSeries::get_nweights weight_idat=0 nweights=0
+dsp::WeightedTimeSeries::convolve_weights nfft=262144 nkeep=248197
+  ndat_per_weight=0 nweights=0 weight_idat=0 bad=0
+Convolution::reserve done
+dsp::Convolution::transformation scratch size=1048576
+dsp::Convolution::transformation step nsamp=248197 bytes=1985576 ndim=2
+dsp::Transformation[Convolution]::operation post_transformation
+dsp::Transformation[Convolution]::operation check output
+dsp::SingleThread::run Convolution done
+dsp::SingleThread::run calling Detection
+dsp::Operation[Detection]::operate
+dsp::Transformation[Detection]::operation call vchecks
+dsp::Transformation[Detection]::vchecks input checks
+dsp::Transformation[Detection]::vchecks done
+dsp::Transformation[Detection]::operation transformation
+dsp::Detection::transformation input ndat=248197 state=Baseband Quadrature output state=Coherency Products
+dsp::Detection::polarimetry ndim=4
+dsp::Detection::polarimetry inplace
+dsp::Detection::polarimetry require_floats=496394
+dsp::Detection::polarimetry copy_bytes=1985576
+dsp::Detection::get_result_pointers ndim=4
+dsp::Detection::polarimetry exit
+dsp::Detection::resize_output
+dsp::Detection::resize_output inplace=1
+dsp::Detection::resize_output state: Coherency Products ndim=4
+dsp::Detection::resize_output reshape FROM npol=2 ndim=2 TO npol=1 ndim=4
+dsp::Detection::transformation exit
+dsp::Transformation[Detection]::operation check output
+dsp::SingleThread::run Detection done
+dsp::SingleThread::run calling Fold
+dsp::Operation[Fold]::operate
+dsp::Transformation[Fold]::operation call vchecks
+dsp::Transformation[Fold]::vchecks input checks
+dsp::Transformation[Fold]::vchecks done
+dsp::Transformation[Fold]::operation transformation
+dsp::Fold::transformation
+dsp::Fold::transformation choose_nbin
+dsp::Fold::choose_nbin
+dsp::Fold::choose_nbin folding_period=0.00575745
+dsp::Fold::choose_nbin sampling_period=2.5e-08
+dsp::Fold::choose_nbin minimum_bin_width=1.2 bins or 3e-08 seconds
+dsp::Fold::choose_nbin sensible nbin=191915
+dsp::Fold::choose_nbin largest power of 2 < nbin=131072
+dsp::Fold::choose_nbin using maximum nbin=1024
+dsp::Fold::transformation call Fold::prepare_output
+dsp::Fold::prepare_output call PhaseSeries::mixable
+PhaseSeries::mixable start mix=54238.66386574 cur=0.00000000
+PhaseSeries::mixable reset
+dsp::TimeSeries::set_nbit (32) ignored
+dsp::PhaseSeries::mixable rate=4e+07
+dsp::PhaseSeries::mixable calling set_order
+dsp::PhaseSeries::mixable calling set_zeroed_data
+dsp::PhaseSeries::mixable calling resize(1024)
+dsp::PhaseSeries::resize nbin=1024
+dsp::TimeSeries::resize (1024) data=0 buffer=0 ndat=248197
+dsp::TimeSeries::resize reserve_ndat=0 fake_ndat=0
+dsp::DataSeries::resize nsamp=1024 nbit=32 ndim=4 (current ndat=248197)
+dsp::DataSeries::resize nbits=nsamp*nbit*ndim=131072
+dsp::DataSeries::resize npol=1 nchan=1
+dsp::DataSeries::resize nbytes=nbits/8*npol*nchan=16384 (current size=0)
+dsp::DataSeries::resize Memory::allocate (16384)
+dsp::DataSeries::resize buffer=0xea5ab0
+dsp::DataSeries::resize memory_used=222892784
+dsp::DataSeries::reshape size=16384 bytes (subsize=16384 bytes)
+dsp::PhaseSeries::resize_hits nchan=1 nbin=1024 hits_nchan=1
+dsp::PhaseSeries::resize_hits Memory::do_allocate (4096)
+dsp::PhaseSeries::mixable calling zero()
+PhaseSeries::zero
+PhaseSeries::set_hits(0)
+PhaseSeries::zero exit
+dsp::WeightedTimeSeries::get_nweights weight_idat=0 nweights=0
+dsp::Fold::transformation WeightedTimeSeries weights=0 ndatperweight=0
+dsp::Fold::fold 0 idat_start=0 ndat_fold=248197
+dsp::Fold::fold 0 ndat_folded=248197 ndat_fold=248197 time=6.20493 ms (bad=0/0) ndatperweight=0
+dsp::Fold::fold ndim=4 folding_nbin=1024 nbin=1024 npol=1
+dsp::Transformation[Fold]::operation check output
+dsp::SingleThread::run Fold done
+Finished 0 s   dsp::SingleThread::run end of data id=0
+dsp::SingleThread::run exit
+Creating archive 1
+dsp::Archiver::unload profiles=0xe8be00
+dsp::Archiver::unload folded 248197 out of 248197 total samples: 100%
+dsp::Archiver::new_Archive new Baseband
+IntegrationManager null constructor
+Pulsar::Archive ctor this=0xeaaad0 instances=1
+Pulsar::Archive::init
+Pulsar::TimerArchive default constructor
+BasebandArchive default construct
+dsp::Archiver::unload set Pulsar::Archive
+dsp::Archiver::set Pulsar::Archive
+dsp::Archiver::set Pulsar::Archive nsub=1 npol=4 nchan=1 nbin=1024 fourth=0
+Archive::resize nsub=1 npol=4 nchan=1 nbin=1024
+ old nsub=0 npol=0 nchan=0 nbin=0
+Pulsar::Archive::resize subints
+Pulsar::IntegrationManager::_resize nsub=1  old nsub=0
+Pulsar::TimerArchive::new_Integration
+Pulsar::Integration ctor this=0xea1610
+Pulsar::IntegrationManager::_resize exit
+Pulsar::Archive::get<Ext> failed to find extension type=PKN6Pulsar16IntegrationOrderE
+Pulsar::IntegrationManager::get_Integration subint=0
+Pulsar::Archive::init_Integration check_phase=0
+Pulsar::IntegrationManager::get_Integration subint=0
+TimerIntegration::resize (npol=4, nchan=1, nbin=1024)
+Integration::resize npol=4 nchan=1 nbin=1024
+ old npol=0 nchan=0 nbin=0
+Pulsar::Archive::resize calling book-keeping functions
+Pulsar::Archive::resize calling resize for each extension
+Pulsar::Archive::resize exit
+Pulsar::Archive::get<Ext> failed to find extension type=PKN6Pulsar16FITSHdrExtensionE
+dsp::Archiver::set Archive source=J1644-4559
+  coord=16:44:49.280-45:59:09.50
+  bw=40
+  freq=1405
+Pulsar::Archive::get<Ext> failed to find extension type=PKN6Pulsar7BackendE
+dsp::Archiver::set Pulsar::Backend extension
+Pulsar::Archive::add_extension appending Backend
+Pulsar::Archive::get<Ext> name=Backend
+Pulsar::Archive::get<Ext> failed to find extension type=PKN6Pulsar12dspReductionE
+Pulsar::Archive::add_extension appending dspReduction
+dsp::Archiver::set Pulsar::dspReduction extension
+dsp::Archiver::set Pulsar::dspReduction start
+dsp::Archiver::pack dspReduction Convolution with Response
+dsp::Archiver::set_coherent_dedispersion
+Pulsar::Archive::get<Ext> name=Backend
+Pulsar::Archive::get<Ext> name=dspReduction
+Pulsar::Archive::get<Ext> failed to find extension type=PKN6Pulsar20CoherentDedispersionE
+Pulsar::Archive::add_extension appending CoherentDedisperion
+dsp::Archiver::set_coherent_dedispersion adding extension
+dsp::Archiver::pack dspReduction Convolution with Response
+dsp::Archiver::set_coherent_dedispersion
+Pulsar::IntegrationManager::get_Integration subint=0
+dsp::Archiver::set Pulsar::Integration
+PhaseSeries::get_mid_time start=54238.7 end=54238.7
+dsp::Archiver::set epoch=54238.6638657375948 duration=0.00620493 period=0.00575745
+dsp::Archiver::set Pulsar::Integration ipol=0 ichan=0 nbin=1024
+dsp::Archiver::set Pulsar::Profile ichan=0 ipol=0 idim=0
+dsp::Archiver::set Pulsar::Profile scale=6.87195e+10
+dsp::Archiver::set Pulsar::Integration ipol=1 ichan=0 nbin=1024
+dsp::Archiver::set Pulsar::Profile ichan=0 ipol=0 idim=1
+dsp::Archiver::set Pulsar::Profile scale=6.87195e+10
+dsp::Archiver::set Pulsar::Integration ipol=2 ichan=0 nbin=1024
+dsp::Archiver::set Pulsar::Profile ichan=0 ipol=0 idim=2
+dsp::Archiver::set Pulsar::Profile scale=6.87195e+10
+dsp::Archiver::set Pulsar::Integration ipol=3 ichan=0 nbin=1024
+dsp::Archiver::set Pulsar::Profile ichan=0 ipol=0 idim=3
+dsp::Archiver::set Pulsar::Profile scale=6.87195e+10
+Pulsar::Archive::get<Ext> name=Backend
+Pulsar::Archive::get<Ext> name=dspReduction
+Pulsar::Archive::get<Ext> name=CoherentDedisperion
+Pulsar::Archive::get<Ext> failed to find extension type=PKN6Pulsar11TwoBitStatsE
+Pulsar::Archive::add_extension appending TwoBitStats
+dsp::Archiver::set Pulsar::TwoBitStats extension
+dsp::Archiver::set Pulsar::TwoBitStats Extension
+dsp::Archiver::set Pulsar::TwoBitStats no ExcisionUnpacker
+Pulsar::Archive::get<Ext> name=Backend
+Pulsar::Archive::get<Ext> name=dspReduction
+Pulsar::Archive::get<Ext> name=CoherentDedisperion
+Pulsar::Archive::get<Ext> name=TwoBitStats
+Pulsar::Archive::get<Ext> failed to find extension type=PKN6Pulsar8PassbandE
+Pulsar::Archive::add_extension appending Passband
+dsp::Archiver::set Pulsar::Passband extension
+dsp::Archiver::set Pulsar::Passband Extension
+dsp::Shape::resize  npol=2  nchan=1  ndat=262144  ndim=1
+dsp::Response::naturalize
+dsp::Archiver::set Pulsar::Passband Extension copy
+	 npol=2 nband=1 nchan/band=262144
+Pulsar::Archive::get<Ext> name=Backend
+Pulsar::Archive::get<Ext> name=dspReduction
+Pulsar::Archive::get<Ext> name=CoherentDedisperion
+Pulsar::Archive::get<Ext> name=TwoBitStats
+Pulsar::Archive::get<Ext> name=Passband
+Pulsar::Archive::get<Ext> failed to find extension type=PKN6Pulsar9TelescopeE
+Pulsar::Archive::add_extension appending Telescope
+Pulsar::Archive::get<Ext> name=Backend
+Pulsar::Archive::get<Ext> name=dspReduction
+Pulsar::Archive::get<Ext> name=CoherentDedisperion
+Pulsar::Archive::get<Ext> name=TwoBitStats
+Pulsar::Archive::get<Ext> name=Passband
+Pulsar::Archive::get<Ext> name=Telescope
+Pulsar::Archive::get<Ext> failed to find extension type=PKN6Pulsar8ReceiverE
+Pulsar::Archive::add_extension appending Receiver
+dsp::Archiver::set PhaseSeries has no predictor
+dsp::FilenameEpoch::get_filename epoch=54238:155558.000333800000000
+unloading 0.0062 seconds: 2007-05-18-15:55:58
+dsp::Archiver set archive filename to '2007-05-18-15:55:58.ar'
+dsp::Archiver::unload archive '2007-05-18-15:55:58.ar'
+Pulsar::Archive::verify testing CalSource
+Pulsar::Archive::verify testing DeFaradayed
+Pulsar::Archive::verify applying DeFaradayed
+Pulsar::DeFaradayed::apply verification
+Pulsar::IntegrationManager::get_Integration const
+Pulsar::IntegrationManager::get_Integration subint=0
+Pulsar::Integration::get<Ext> failed to find extension type=PKN6Pulsar9DeFaradayE
+Pulsar::Archive::unload (2007-05-18-15:55:58.ar)
+Pulsar::Archive::get<Ext> name=Backend
+Pulsar::Archive::get<Ext> name=dspReduction
+Pulsar::Archive::get<Ext> name=CoherentDedisperion
+Pulsar::Archive::get<Ext> name=TwoBitStats
+Pulsar::Archive::get<Ext> name=Passband
+Pulsar::Archive::get<Ext> name=Telescope
+Pulsar::Archive::get<Ext> name=Receiver
+Pulsar::Archive::get<Ext> failed to find extension type=PKN6Pulsar16IntegrationOrderE
+TimerArchive::unload opened '2007-05-18-15:55:58.ar.XX3jgulG'
+Pulsar::TimerArchive::pack_extensions
+Pulsar::Archive::get<Ext> name=Backend
+Pulsar::Archive::get<Ext> name=dspReduction
+Pulsar::Archive::get<Ext> name=CoherentDedisperion
+Pulsar::Archive::get<Ext> name=TwoBitStats
+Pulsar::Archive::get<Ext> name=Passband
+Pulsar::Archive::get<Ext> name=Telescope
+Pulsar::Archive::get<Ext> name=Receiver
+Pulsar::TimerArchive::pack Receiver
+Pulsar::TimerArchive::pack Receiver
+	X_offset=0deg
+	Y_offset=0deg
+	calibrator_offset=0deg
+Pulsar::Archive::get<Ext> name=Backend
+Pulsar::Archive::get<Ext> name=dspReduction
+Pulsar::Archive::get<Ext> name=CoherentDedisperion
+Pulsar::Archive::get<Ext> name=TwoBitStats
+Pulsar::Archive::get<Ext> name=Passband
+Pulsar::Archive::get<Ext> name=Telescope
+Pulsar::Archive::get<Ext> name=Receiver
+Pulsar::Archive::get<Ext> failed to find extension type=PKN6Pulsar8TapeInfoE
+Pulsar::TimerArchive::pack_extensions no TapeInfo
+Pulsar::Archive::get<Ext> name=Backend
+TimerArchive::hdr_unload correcting archive
+Pulsar::BasebandArchive::correct
+Pulsar::BasebandArchive::set_header
+Pulsar::Archive::get<Ext> name=Backend
+Pulsar::Archive::get<Ext> name=dspReduction
+Pulsar::BasebandArchive::check_extensions
+Pulsar::Archive::get<Ext> name=Backend
+Pulsar::Archive::get<Ext> name=dspReduction
+Pulsar::Archive::get<Ext> name=CoherentDedisperion
+Pulsar::Archive::get<Ext> name=TwoBitStats
+Pulsar::Archive::get<Ext> name=Backend
+Pulsar::Archive::get<Ext> name=dspReduction
+Pulsar::Archive::get<Ext> name=CoherentDedisperion
+Pulsar::Archive::get<Ext> name=TwoBitStats
+Pulsar::Archive::get<Ext> name=Passband
+Pulsar::BasebandArchive::check_extensions Passband nfreq=262144 nchan=2
+Pulsar::BasebandArchive::check_be_data_size sizeof(baseband_header)=184
+Pulsar::BasebandArchive::check_extensions
+Pulsar::Archive::get<Ext> name=Backend
+Pulsar::Archive::get<Ext> name=dspReduction
+Pulsar::Archive::get<Ext> name=CoherentDedisperion
+Pulsar::Archive::get<Ext> name=TwoBitStats
+Pulsar::Archive::get<Ext> name=Backend
+Pulsar::Archive::get<Ext> name=dspReduction
+Pulsar::Archive::get<Ext> name=CoherentDedisperion
+Pulsar::Archive::get<Ext> name=TwoBitStats
+Pulsar::Archive::get<Ext> name=Passband
+Pulsar::BasebandArchive::check_extensions Passband nfreq=262144 nchan=2
+Pulsar::BasebandArchive::check_be_data_size passband size=1048608
+Pulsar::IntegrationManager::get_Integration const
+Pulsar::IntegrationManager::get_Integration subint=0
+Pulsar::Archive::get<Ext> name=Backend
+Pulsar::Archive::get<Ext> name=dspReduction
+Pulsar::Archive::get<Ext> name=CoherentDedisperion
+Pulsar::Archive::get<Ext> name=TwoBitStats
+Pulsar::Archive::get<Ext> name=Passband
+Pulsar::Archive::get<Ext> name=Telescope
+Pulsar::IntegrationManager::get_Integration subint=0
+Pulsar::IntegrationManager::get_Integration subint=0
+Pulsar::Archive::get<Ext> name=Backend
+Pulsar::Archive::get<Ext> name=dspReduction
+Pulsar::Archive::get<Ext> name=CoherentDedisperion
+Pulsar::Archive::get<Ext> name=TwoBitStats
+Pulsar::Archive::get<Ext> name=Passband
+Pulsar::Archive::get<Ext> name=Telescope
+Pulsar::IntegrationManager::get_Integration subint=0
+Pulsar::TimerArchive::get_coordinates 16:44:49.280-45:59:09.50
+TimerArchive::hdr_unload predictor size = 0 bytes
+TimerArchive::hdr_unload parameters size = 0 bytes
+Pulsar::BasebandArchive::set_header
+Pulsar::Archive::get<Ext> name=Backend
+Pulsar::Archive::get<Ext> name=dspReduction
+Pulsar::BasebandArchive::check_extensions
+Pulsar::Archive::get<Ext> name=Backend
+Pulsar::Archive::get<Ext> name=dspReduction
+Pulsar::Archive::get<Ext> name=CoherentDedisperion
+Pulsar::Archive::get<Ext> name=TwoBitStats
+Pulsar::Archive::get<Ext> name=Backend
+Pulsar::Archive::get<Ext> name=dspReduction
+Pulsar::Archive::get<Ext> name=CoherentDedisperion
+Pulsar::Archive::get<Ext> name=TwoBitStats
+Pulsar::Archive::get<Ext> name=Passband
+Pulsar::BasebandArchive::check_extensions Passband nfreq=262144 nchan=2
+Pulsar::BasebandArchive::check_be_data_size sizeof(baseband_header)=184
+Pulsar::BasebandArchive::check_extensions
+Pulsar::Archive::get<Ext> name=Backend
+Pulsar::Archive::get<Ext> name=dspReduction
+Pulsar::Archive::get<Ext> name=CoherentDedisperion
+Pulsar::Archive::get<Ext> name=TwoBitStats
+Pulsar::Archive::get<Ext> name=Backend
+Pulsar::Archive::get<Ext> name=dspReduction
+Pulsar::Archive::get<Ext> name=CoherentDedisperion
+Pulsar::Archive::get<Ext> name=TwoBitStats
+Pulsar::Archive::get<Ext> name=Passband
+Pulsar::BasebandArchive::check_extensions Passband nfreq=262144 nchan=2
+Pulsar::BasebandArchive::check_be_data_size passband size=1048608
+TimerArchive::hdr_unload backend data size = 1048792 bytes
+Pulsar::IntegrationManager::get_Integration const
+Pulsar::IntegrationManager::get_Integration subint=0
+TimerArchive::hdr_unload writing timer header
+BasebandArchive::backend_unload header size=1048792
+Pulsar::Archive::get<Ext> name=Backend
+Pulsar::Archive::get<Ext> name=dspReduction
+Pulsar::Archive::get<Ext> name=CoherentDedisperion
+Pulsar::Archive::get<Ext> name=TwoBitStats
+Pulsar::Archive::get<Ext> name=Passband
+BasebandArchive::backend_unload 2 bandpasses with 262144 channels
+BasebandArchive::backend_unload exit
+TimerArchive::unload nsubint=1 nchan=1 npol=4 nbin=1024
+TimerArchive::subint_unload 1/1
+Pulsar::IntegrationManager::get_Integration const
+Pulsar::IntegrationManager::get_Integration subint=0
+TimerIntegration::unload epoch=54238.6638657376 period=0.00575745
+Pulsar::Integration::get<Ext> failed to find extension type=PKN6Pulsar8PointingE
+Pulsar::TimerIntegration::unload extra start offset=1049944
+TimerIntegration::unload writing 1 weights
+TimerIntegration::unload writing 4x1 med
+TimerIntegration::unload writing 4x1 bpass
+Pulsar::TimerIntegration::unload extra end offset=1049980
+TimerIntegration::unload unloading profiles npol=4 nchan=1
+TimerIntegration::unload ipol=0	 ichan=0
+Pulsar::TimerProfile_unload start offset=1049980Pulsar::TimerProfile_unload fcompwrite data nbin=1024Pulsar::TimerProfile_unload end offset=1052052TimerIntegration::unload ipol=1	 ichan=0
+Pulsar::TimerProfile_unload start offset=1052052Pulsar::TimerProfile_unload fcompwrite data nbin=1024Pulsar::TimerProfile_unload end offset=1054124TimerIntegration::unload ipol=2	 ichan=0
+Pulsar::TimerProfile_unload start offset=1054124Pulsar::TimerProfile_unload fcompwrite data nbin=1024Pulsar::TimerProfile_unload end offset=1056196TimerIntegration::unload ipol=3	 ichan=0
+Pulsar::TimerProfile_unload start offset=1056196Pulsar::TimerProfile_unload fcompwrite data nbin=1024Pulsar::TimerProfile_unload end offset=1058268TimerIntegration::unload exit
+TimerArchive::subint_unload 1/1 unloaded
+TimerArchive::subint_unload exit
+BasebandArchive destructor
+Pulsar::TimerArchive destructor
+Pulsar::Archive dtor this=0xeaaad0 instances=0
+Pulsar::IntegrationManager dtor this=0xeaaad0
+TimerIntegration destructor
+Pulsar::Integration dtor this=0xea1610
+dsp::Transformation[InverseFilterbank]::dtor
+dsp::DataSeries::resize nsamp=0 nbit=32 ndim=2 (current ndat=27894)
+dsp::DataSeries::resize nbits=nsamp*nbit*ndim=0
+dsp::DataSeries::resize npol=2 nchan=1
+dsp::DataSeries::resize nbytes=nbits/8*npol*nchan=0 (current size=4194304)
+dsp::DataSeries::resize Memory::free size=4194304 buffer=0x7f9e0f27d010
+dsp::Transformation[Convolution]::dtor
+dsp::DataSeries::resize nsamp=0 nbit=32 ndim=2 (current ndat=248197)
+dsp::DataSeries::resize nbits=nsamp*nbit*ndim=0
+dsp::DataSeries::resize npol=2 nchan=1
+dsp::DataSeries::resize nbytes=nbits/8*npol*nchan=0 (current size=4194304)
+dsp::DataSeries::resize Memory::free size=4194304 buffer=0x7f9dfd5f1010
+dsp::DataSeries::resize nsamp=0 nbit=32 ndim=2 (current ndat=496394)
+dsp::DataSeries::resize nbits=nsamp*nbit*ndim=0
+dsp::DataSeries::resize npol=2 nchan=1
+dsp::DataSeries::resize nbytes=nbits/8*npol*nchan=0 (current size=75675040)
+dsp::DataSeries::resize Memory::free size=75675040 buffer=0x7f9e01a54010
+dsp::Transformation[Detection]::dtor
+dsp::Transformation[Fold]::dtor
+dsp::PhaseSeries::~PhaseSeries this=0xe8be00 hits=0xea9ac0
+dsp::DataSeries::resize nsamp=0 nbit=32 ndim=4 (current ndat=1024)
+dsp::DataSeries::resize nbits=nsamp*nbit*ndim=0
+dsp::DataSeries::resize npol=1 nchan=1
+dsp::DataSeries::resize nbytes=nbits/8*npol*nchan=0 (current size=16384)
+dsp::DataSeries::resize Memory::free size=16384 buffer=0xea5ab0
+dsp::DataSeries::resize nsamp=0 nbit=32 ndim=4 (current ndat=248197)
+dsp::DataSeries::resize nbits=nsamp*nbit*ndim=0
+dsp::DataSeries::resize npol=1 nchan=1
+dsp::DataSeries::resize nbytes=nbits/8*npol*nchan=0 (current size=67509584)
+dsp::DataSeries::resize Memory::free size=67509584 buffer=0x7f9dfd9f2010
+dsp::Transformation[FloatUnpacker]::dtor
+dsp::DataSeries::resize nsamp=0 nbit=32 ndim=2 (current ndat=524288)
+dsp::DataSeries::resize nbits=nsamp*nbit*ndim=0
+dsp::DataSeries::resize npol=2 nchan=1
+dsp::DataSeries::resize nbytes=nbits/8*npol*nchan=0 (current size=71303168)
+dsp::DataSeries::resize Memory::free size=71303168 buffer=0x7f9e06280010
+Pulsar::Archive::Agent::~Agent
+Pulsar::Archive::Agent::~Agent
+Pulsar::Archive::Agent::~Agent
+Pulsar::Archive::Agent::~Agent
+Pulsar::Archive::Agent::~Agent
+Pulsar::Archive::Agent::~Agent
+Pulsar::Archive::Agent::~Agent
+Pulsar::Archive::Agent::~Agent
+Pulsar::Archive::Agent::~Agent
+Pulsar::Archive::Agent::~Agent
+Pulsar::Archive::Agent::~Agent
+Pulsar::Archive::Agent::~Agent
+dsp::Transformation[GenericTwoBitCorrection]::dtor
+dsp::Transformation[GenericFourBitUnpacker]::dtor
+dsp::Transformation[GenericEightBitUnpacker]::dtor
+dsp::Transformation[SigProcUnpacker]::dtor
+dsp::Transformation[S2TwoBitCorrection]::dtor
+dsp::Transformation[PuMa2Unpacker]::dtor
+dsp::Transformation[OneBitCorrection]::dtor
+dsp::Transformation[EDAFourBit]::dtor
+dsp::Transformation[MaximUnpacker]::dtor
+dsp::Transformation[Mark5TwoBitCorrection]::dtor
+dsp::Transformation[Mark5Unpacker]::dtor
+dsp::Transformation[Mark4TwoBitCorrection]::dtor
+dsp::Transformation[LBADR64_TwoBitCorrection]::dtor
+dsp::Transformation[SMROTwoBitCorrection]::dtor
+dsp::Transformation[GMRTFilterbank16]::dtor
+dsp::Transformation[GMRTFourBit]::dtor
+dsp::Transformation[GMRTEightBit]::dtor
+dsp::Transformation[CPSR2TwoBitCorrection]::dtor
+dsp::Transformation[CPSRTwoBitCorrection]::dtor
+dsp::Transformation[BPSRCrossUnpacker]::dtor
+dsp::Transformation[BPSRUnpacker]::dtor
+dsp::Transformation[BCPMUnpacker]::dtor
+dsp::Transformation[ASPUnpacker]::dtor
+dsp::Transformation[APSREightBit]::dtor
+dsp::Transformation[APSRFourBit]::dtor
+dsp::Transformation[APSRTwoBitCorrection]::dtor
+dsp::Transformation[FloatUnpacker]::dtor

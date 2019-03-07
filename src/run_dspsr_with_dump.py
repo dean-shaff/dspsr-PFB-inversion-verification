@@ -43,8 +43,10 @@ def run_dspsr_with_dump(file_path: str,
     module_logger.debug(f"run_dspsr_with_dump: output archive: {output_ar}")
     module_logger.debug(f"run_dspsr_with_dump: output dump: {output_dump}")
     module_logger.debug(f"run_dspsr_with_dump: output log: {output_log}")
-
-    dspsr_cmd_str = (f"dspsr -c 0.00575745 -D 2.64476 {file_path} "
+    dm = 2.64476
+    # dm = 0.0
+    period = 0.00575745
+    dspsr_cmd_str = (f"dspsr -c {period} -D {dm} {file_path} "
                      f"-O {output_ar} -dump Detection {extra_args}")
 
     module_logger.debug(f"run_dspsr_with_dump: dspsr command: {dspsr_cmd_str}")

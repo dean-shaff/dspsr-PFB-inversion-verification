@@ -30,7 +30,8 @@ def design_pfb_fir(ntaps: int,
     # The combination of the two allows us to construct any type of filter!
 
     module_logger.info((f"design_pfb_fir: cut-off frequency: {freq_pass}, "
-                        f"stop-band frequency: {freq_stop}"))
+                        f"stop-band frequency: {freq_stop}, "
+                        f"ntaps: {ntaps}"))
 
     bands = [0.0, freq_pass, freq_stop, 1.0]
     desired = [1, 1, 0, 0]
